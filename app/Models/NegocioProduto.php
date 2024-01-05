@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class NegocioProduto extends Model
 {
+    use SoftDeletes;
+    use HasApiTokens;
+    use SerializesModels;
+    
     protected $table = 'negocios_produtos';
     protected $primaryKey = 'id';
     public $timestamps = true;

@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Produto extends Model
 {
+    use SoftDeletes;
+    use HasApiTokens;
+    use SerializesModels;
+    
     protected $table = 'produtos';
     protected $primaryKey = 'id';
     public $timestamps = false; // Se você não utilizar os campos 'created_at' e 'updated_at'
